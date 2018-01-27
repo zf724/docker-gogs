@@ -1,0 +1,22 @@
+version: '2'
+services:
+    mysql:
+      image: mysql:5
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+      volumes:
+        - db:/var/lib/mysql
+      ports:
+        - 3306:3306
+    gogs:
+      image: gogs/gogs
+      volumes:
+        - gogs:/var/gogs
+      depends_on:
+        - mysql
+      ports:
+        - 2222:22
+        - 8080:3000
+volumes:
+    db:
+    gogs:
