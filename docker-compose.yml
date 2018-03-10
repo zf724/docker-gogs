@@ -7,7 +7,7 @@ services:
       volumes:
         - db:/var/lib/mysql
       ports:
-        - 3306:3306
+        - "3306:3306"
     gogs:
       image: gogs/gogs
       volumes:
@@ -15,8 +15,8 @@ services:
       depends_on:
         - mysql
       ports:
-        - 2222:22
-        - 8080:3000
+        - "2222:22"
+        - "8080:3000"
 volumes:
     db:
     gogs:
